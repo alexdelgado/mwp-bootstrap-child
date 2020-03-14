@@ -1,0 +1,17 @@
+@function opposite-position($side) {
+  @if $side == 'top' {
+    @return 'bottom';
+  }
+
+  @if $side == 'bottom' {
+    @return 'top';
+  }
+
+  @if $side == 'left' {
+    @return 'right';
+  }
+
+  @if $side == 'right' {
+    @return 'left';
+  }
+}

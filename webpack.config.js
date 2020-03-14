@@ -40,7 +40,7 @@ module.exports = {
     new BrowserSyncPlugin({
       files: '**/*.php',
       injectChanges: true,
-      proxy: 'http://wordpress.test'
+      proxy: 'http://one.wordpress.test/'
     })
   ],
   optimization: {

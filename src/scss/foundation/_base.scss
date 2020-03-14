@@ -1,0 +1,43 @@
+@import "https://fonts.googleapis.com/css?family=Arvo:700|Open+Sans";
+
+body {
+  backface-visibility: hidden;
+  background: $white;
+  box-sizing: border-box;
+  color: #abacae;
+  font-family: open sans,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 25px;
+  overflow-x: hidden
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #222;
+  font-family: arvo, serif;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+a {
+  transition: all .2s linear;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none
+  }
+}
+
+p {
+  font-family: open sans, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
