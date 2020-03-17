@@ -1,0 +1,14 @@
+.nav {
+  justify-content: flex-end;
+  padding: $navbar-padding-y 0;
+
+  li {
+    &:nth-child(n+2) {
+      margin-left: 15px;
+    }
+  }
+
+  a {
+    color: $body-color;
+  }
+}
