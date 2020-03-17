@@ -6,13 +6,16 @@
   "license": "GPL-2.0",
   "scripts": {
     "build": "webpack --config webpack.prod.config.js",
+    "dev": "webpack --config webpack.dev.config.js",
     "watch": "webpack --config webpack.dev.config.js --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
@@ -35,6 +38,9 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1"
+    "bootstrap": "^4.4.1",
+    "react": "^16.13.0",
+    "react-autosuggest": "^9.4.3",
+    "react-dom": "^16.13.0"
   }
 }

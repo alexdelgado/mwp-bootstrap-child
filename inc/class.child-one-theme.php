@@ -22,6 +22,17 @@ class Child_One_Theme extends WP_Bootstrap_Theme {
 			filemtime( get_stylesheet_directory() . '/dist/js/theme.min.js' ),
 			true
 		);
+
+		$variables = array(
+			'search' => array(
+				'label' => _x( 'Search for:', 'label' ),
+				'placeholder' => esc_attr_x( 'Search …', 'placeholder' ),
+				'value' => get_search_query()
+			)
+		);
+
+		wp_localize_script( 'wp-bootstrap-theme', 'wpBootstrap', $variables );
+
 	}
 
 	/**

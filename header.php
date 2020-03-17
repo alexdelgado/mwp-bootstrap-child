@@ -10,8 +10,8 @@
 
 		<header>
 			<div class="primary-nav navbar navbar-expand-lg navbar-light bg-light">
-				<button id="js-navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#js-navbar" aria-controls="js-navbar" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+				<button class="btn--sm btn--transparent d-lg-none" type="button" data-toggle="collapse" data-target="#js-navbar" aria-controls="js-navbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="lni-menu"></span>
 				</button>
 				<nav id="js-navbar" class="collapse navbar-collapse">
 					<?php
