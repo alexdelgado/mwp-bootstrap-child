@@ -10,16 +10,16 @@ class Child_One_Theme extends WP_Bootstrap_Theme {
 	public function enqueue_assets() {
 		wp_enqueue_style(
 			'wp-bootstrap-theme',
-			get_stylesheet_directory_uri() .'/dist/theme.min.css',
+			get_stylesheet_directory_uri() .'/dist/css/theme.min.css',
 			array(),
-			filemtime( get_stylesheet_directory() . '/dist/theme.min.css' )
+			filemtime( get_stylesheet_directory() . '/dist/css/theme.min.css' )
 		);
 
 		wp_enqueue_script(
 			'wp-bootstrap-theme',
-			get_stylesheet_directory_uri() .'/dist/theme.min.js',
+			get_stylesheet_directory_uri() .'/dist/js/theme.min.js',
 			array(),
-			filemtime( get_stylesheet_directory() . '/dist/theme.min.js' ),
+			filemtime( get_stylesheet_directory() . '/dist/js/theme.min.js' ),
 			true
 		);
 	}

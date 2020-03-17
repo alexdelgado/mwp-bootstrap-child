@@ -6,3 +6,4 @@ add_action( 'after_setup_theme', array( 'wp_bootstrap_theme', 'setup_theme' ) );
 
 require( 'inc/class.child-one-theme.php' );
 add_action( 'init', array( 'child_one_theme', 'singleton' ) );
+add_action( 'after_setup_theme', array( 'child_one_theme', 'setup_theme' ) );
