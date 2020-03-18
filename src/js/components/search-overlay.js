@@ -34,7 +34,9 @@ if ($searchLink) {
   const $searchOverlay = document.getElementById('js-search-overlay');
   const $searchClose = document.getElementById('js-search-hide');
 
-  $searchToggle.addEventListener('click', () => {
+  $searchToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+
     if ($searchOverlay.classList.contains('show')) {
       hideOverlay($searchOverlay);
       document.removeEventListener('keydown', hideHandler.bind({overlay: $searchOverlay}));
