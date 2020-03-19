@@ -1,117 +1,28 @@
-import React from 'react';
-import Autosuggest from 'react-autosuggest';
+import React from 'react'
+import Autosuggest from 'react-autosuggest'
+import { connect } from 'react-redux'
+import { getSuggestions, clearSuggestions } from '../actions'
+import store from '../store'
 
-// Imagine you have a list of languages that you'd like to autosuggest.
-const languages = [
-  {
-    title: '1970s',
-    languages: [
-      {
-        name: 'C',
-        year: 1972
-      }
-    ]
-  },
-  {
-    title: '1980s',
-    languages: [
-      {
-        name: 'C++',
-        year: 1983
-      },
-      {
-        name: 'Perl',
-        year: 1987
-      }
-    ]
-  },
-  {
-    title: '1990s',
-    languages: [
-      {
-        name: 'Haskell',
-        year: 1990
-      },
-      {
-        name: 'Python',
-        year: 1991
-      },
-      {
-        name: 'Java',
-        year: 1995
-      },
-      {
-        name: 'Javascript',
-        year: 1995
-      },
-      {
-        name: 'PHP',
-        year: 1995
-      },
-      {
-        name: 'Ruby',
-        year: 1995
-      }
-    ]
-  },
-  {
-    title: '2000s',
-    languages: [
-      {
-        name: 'C#',
-        year: 2000
-      },
-      {
-        name: 'Scala',
-        year: 2003
-      },
-      {
-        name: 'Clojure',
-        year: 2007
-      },
-      {
-        name: 'Go',
-        year: 2009
-      }
-    ]
-  },
-  {
-    title: '2010s',
-    languages: [
-      {
-        name: 'Elm',
-        year: 2012
-      }
-    ]
+function mapStateToProps(state) {
+  return {
+    suggestions: state.suggestions
   }
-];
-
-// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
-function escapeRegexCharacters(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function getSuggestions(value) {
-  const escapedValue = escapeRegexCharacters(value.trim());
-
-  if (escapedValue === '') {
-    return [];
+function mapDispatchToProps(dispatch) {
+  return {
+    getSuggestions: (term) => {
+      return dispatch(getSuggestions(term))
+    },
+    clearSuggestions: () => {
+      return dispatch(clearSuggestions())
+    }
   }
-
-  const regex = new RegExp('^' + escapedValue, 'i');
-
-  return languages
-    .map(section => {
-      return {
-        title: section.title,
-        languages: section.languages.filter(language => regex.test(language.name))
-      };
-    })
-    .filter(section => section.languages.length > 0);
 }
 
 function getSuggestionValue(suggestion) {
-  return suggestion.name;
+  return suggestion.title
 }
 
 function renderSuggestionsContainer({ containerProps, children, query }) {
@@ -122,79 +33,74 @@ function renderSuggestionsContainer({ containerProps, children, query }) {
         Press Enter to search <strong>{query}</strong>
       </div>
     </div>
-  );
+  )
 }
 
 function renderSectionTitle(section) {
   return (
     <h4>{section.title}</h4>
-  );
+  )
 }
 
 function renderSuggestion(suggestion) {
   return (
-    <span>{suggestion.name}</span>
-  );
+    <span>{suggestion.title}</span>
+  )
 }
 
 function getSectionSuggestions(section) {
-  return section.languages;
+  return section.results
 }
 
-export default class SearchForm extends React.Component {
+class ConnectedSearchForm extends React.Component {
+
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       label: window.wpBootstrap.search.label || '',
       placeholder: window.wpBootstrap.search.placeholder || '',
       suggestions: [],
       value: window.wpBootstrap.search.value || ''
-    };
+    }
+
+    store.subscribe(() => this.onSubscribe())
+  }
+
+  onSubscribe() {
+    const state = store.getState()
+
+    if (state.suggestions.length > 0) {
+      this.setState({
+        suggestions: state.suggestions
+      })
+    }
   }
 
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
-    });
-  };
+    })
+  }
 
   onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: getSuggestions(value)
-    });
-  };
+    if (value.length > 2) {
+      this.props.getSuggestions(value)
+    }
+  }
 
   onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
+    this.props.clearSuggestions()
+  }
 
   render() {
-    const { value, suggestions } = this.state;
-    const inputProps = {
-      'type': 'search',
-      'id': 'js-search',
-      'className': 'search-form__input input-text',
-      'placeholder': this.state.placeholder,
-      'value': this.state.value,
-      'role': 'combobox',
-      'aria-autocomplete': 'list',
-      'aria-expanded': 'false',
-      'aria-label': 'Search for...',
-      'aria-owns': 'js-search-autocomplete',
-      'autoComplete': 'off',
-      onChange: this.onChange
-    };
-
     return (
-      <div className='search-form'>
+      <div className="search-form">
         <label>
-          <span className='screen-reader-text'>{ this.state.label }</span>
+          <span className="screen-reader-text">{ this.state.label }</span>
           <Autosuggest
             multiSection={true}
-            suggestions={suggestions}
+            suggestions={this.state.suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
             getSuggestionValue={getSuggestionValue}
@@ -202,10 +108,26 @@ export default class SearchForm extends React.Component {
             renderSectionTitle={renderSectionTitle}
             renderSuggestion={renderSuggestion}
             getSectionSuggestions={getSectionSuggestions}
-            inputProps={inputProps}
+            inputProps={{
+              'type': 'search',
+              'id': 'js-search',
+              'className': 'search-form__input input-text',
+              'placeholder': this.state.placeholder,
+              'value': this.state.value,
+              'role': 'combobox',
+              'aria-autocomplete': 'list',
+              'aria-expanded': 'false',
+              'aria-label': 'Search for...',
+              'aria-owns': 'js-search-autocomplete',
+              'autoComplete': 'off',
+              onChange: this.onChange
+            }}
           />
         </label>
       </div>
-    );
+    )
   }
 }
+
+const SearchForm = connect(mapStateToProps,mapDispatchToProps)(ConnectedSearchForm)
+export default SearchForm
