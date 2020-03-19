@@ -24,7 +24,12 @@ import SearchForm from './components/SearchForm'
 
 ReactDOM.render(
   <Provider store={store}>
-    <SearchForm />
+    <SearchForm
+      label={wpBootstrap.search.label}
+      placeholder={wpBootstrap.search.placeholder}
+      value={wpBootstrap.search.value}
+      url={wpBootstrap.search.url}
+    />
   </Provider>,
   document.getElementById('react-search')
 )

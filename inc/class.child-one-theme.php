@@ -25,9 +25,10 @@ class Child_One_Theme extends WP_Bootstrap_Theme {
 
 		$variables = array(
 			'search' => array(
-				'label' => _x( 'Search for:', 'label' ),
+				'label'       => _x( 'Search for:', 'label' ),
 				'placeholder' => esc_attr_x( 'Search …', 'placeholder' ),
-				'value' => get_search_query()
+				'url'         => get_rest_url(null, 'wp/v2/posts'),
+				'value'       => get_search_query()
 			)
 		);
 

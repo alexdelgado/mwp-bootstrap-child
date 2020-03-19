@@ -2,15 +2,16 @@ class SearchResult {
 
   id
   title
-  content
-  url
+  excerpt
   postType
+  url
 
   constructor(data) {
     this.id = data.id
-    this.title = data.title
-    this.url = data.url
-    this.postType = data.subtype
+    this.title = data.title.rendered ? data.title.rendered : data.title
+    this.excerpt = data.excerpt.rendered ? data.excerpt.rendered : data.excerpt
+    this.postType = data.type
+    this.url = data.link
   }
 }
 
