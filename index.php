@@ -11,6 +11,7 @@
 				get_template_part( 'template-parts/content', 'none' );
 			}
 		?>
+		<div id="root"></div>
 	</main>
 
 <?php get_footer();

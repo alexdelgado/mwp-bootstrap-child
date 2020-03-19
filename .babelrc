@@ -1,12 +1,15 @@
 {
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ],
   "presets": [
-      [
-          "@babel/env",
-          {
-              "targets": {
-                  "browsers": ["last 2 versions"]
-              }
-          }
-      ]
+    "@babel/react",
+    "@babel/env"
   ]
 }

@@ -1980,7 +1980,6 @@ h3,
 h4 {
   color: #222;
   font-family: arvo, serif;
-  font-size: 38px;
   font-weight: 700; }
 
 a {
@@ -3697,16 +3696,52 @@ Author: lineicons.com
 .lni-spotify-original::before {
   content: '\ec03'; }
 
+.react-autosuggest__suggestions-container {
+  margin-top: 10px; }
+  .react-autosuggest__suggestions-container--open {
+    border: 1px solid rgba(0, 0, 0, 0.06); }
+    .react-autosuggest__suggestions-container--open .react-autosuggest__footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      margin-top: 10px;
+      padding: 10px 15px; }
+
+.react-autosuggest__section-title {
+  padding: 15px 15px 0; }
+  .react-autosuggest__section-title h4 {
+    font-size: 1.2rem;
+    text-transform: capitalize; }
+
+.react-autosuggest__suggestions-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  line-height: 2.5em;
+  padding: 0 15px; }
+  .react-autosuggest__suggestion:hover, .react-autosuggest__suggestion:focus, .react-autosuggest__suggestion--highlighted {
+    background: #e9ecef; }
+
+.overlay {
+  background: #fff;
+  height: 100vh;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10; }
+  .overlay:not(.show) {
+    display: none; }
+
 .nav {
+  align-items: center;
   justify-content: flex-end;
   padding: 0.5rem 0; }
   .nav li:nth-child(n+2) {
     margin-left: 15px; }
   .nav a {
     color: #212529; }
-
-.navbar-toggler {
-  border: none; }
 
 .navbar-collapse {
   justify-content: flex-end; }
@@ -3723,6 +3758,101 @@ Author: lineicons.com
     position: absolute;
     width: 100%;
     z-index: 5; }
+
+.search-form {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 75px;
+  position: relative;
+  width: 100%; }
+  .search-form label {
+    margin-bottom: 0;
+    width: 100%; }
+  .search-form__header {
+    width: 100%; }
+  .search-form__autocomplete {
+    background: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+    height: auto;
+    left: 0 !important;
+    margin: 6px 0 0;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0.75rem 0 !important;
+    position: absolute;
+    right: inherit !important;
+    text-align: left;
+    top: 100%;
+    width: 100%;
+    z-index: 100; }
+    .search-form__autocomplete:not(.show) {
+      display: none; }
+  .search-form__results {
+    margin-top: 50px;
+    width: 100%; }
+    .search-form__results h3 {
+      text-align: center;
+      width: 100%; }
+    .search-form__results a {
+      color: #212529;
+      font-family: arvo, serif; }
+  .search-form__result {
+    padding: 15px; }
+    .search-form__result:hover, .search-form__result:focus {
+      background: #f8f9fa;
+      border-radius: 3px; }
+
+.btn--sm {
+  font-size: 24px; }
+
+.btn--transparent {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  line-height: 1;
+  padding: 0.25rem 0.75rem; }
+  .btn--transparent:hover, .btn--transparent:focus {
+    text-decoration: none; }
+
+.input-text {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 1rem + 2px);
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.3rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  @media (prefers-reduced-motion: reduce) {
+    .input-text {
+      transition: none; } }
+  .input-text::-ms-expand {
+    background-color: transparent;
+    border: 0; }
+  .input-text:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #495057; }
+  .input-text:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+  .input-text::placeholder {
+    color: #6c757d;
+    opacity: 1; }
+  .input-text:disabled, .input-text[readonly] {
+    background-color: #e9ecef;
+    opacity: 1; }
 
 
 /*# sourceMappingURL=theme.min.css.map*/
