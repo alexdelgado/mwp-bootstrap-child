@@ -37,6 +37,20 @@ class Child_One_Theme extends WP_Bootstrap_Theme {
 	}
 
 	/**
+	 * Rest Post Query
+	 *
+	 * Change the WordPress '/posts' REST API query to include multiple post types.
+	 */
+	public function rest_post_query( $args, $request ) {
+
+		if ( $request->get_param( 'search' ) ) {
+			$args['post_type'] = ['post', 'page'];
+		}
+
+		return $args;
+	}
+
+	/**
 	 * Singleton
 	 *
 	 * Returns a single instance of the current class.
@@ -48,5 +62,16 @@ class Child_One_Theme extends WP_Bootstrap_Theme {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Add Actions
+	 *
+	 * Defines all the WordPress actions and filters used by this theme.
+	 */
+	protected function _add_actions() {
+		parent::_add_actions();
+
+		add_action( 'rest_post_query', array( $this, 'rest_post_query' ), 10, 2 );
 	}
 }

@@ -40,7 +40,7 @@ function* searchResultsWorkerSaga(action) {
 }
 
 function querySearchApi(request) {
-  return fetch(encodeURI(request.url + '&search=' + request.term))
+  return fetch(encodeURI(request.url + '?search=' + request.term))
     .then((response) => {
       return response.json()
     })

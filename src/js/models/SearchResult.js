@@ -8,8 +8,8 @@ class SearchResult {
 
   constructor(data) {
     this.id = data.id
-    this.title = data.title.rendered ? data.title.rendered : data.title
-    this.excerpt = data.excerpt.rendered ? data.excerpt.rendered : data.excerpt
+    this.title = data.title.rendered
+    this.excerpt = data.excerpt.rendered
     this.postType = data.type
     this.url = data.link
   }
