@@ -3822,7 +3822,8 @@ Author: lineicons.com
 .react-autosuggest__section-title {
   padding: 15px 15px 0; }
   .react-autosuggest__section-title h4 {
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    text-transform: capitalize; }
 
 .react-autosuggest__suggestions-list {
   list-style-type: none;
