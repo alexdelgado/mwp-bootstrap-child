@@ -52,13 +52,10 @@ function rootReducer(state = initialState, action) {
     case REST_SEARCH_RESULTS_GOT:
       return Object.assign({}, state, {
         results: transformSuggestions(action.payload),
-        status: 'loaded',
-        suggestions: []
       })
     case REST_SEARCH_RESULTS_CLEAR:
       return Object.assign({}, state, {
         results: [],
-        status: ''
       })
     default:
       return state

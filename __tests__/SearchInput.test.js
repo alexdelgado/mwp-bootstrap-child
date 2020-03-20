@@ -13,7 +13,7 @@ test('SearchInput component renders properly', () => {
     value: '',
   }
 
-  const wrapper = mount(
+  const component = mount(
     <Provider store={store}>
       <SearchInput
         label={props.label}
@@ -23,10 +23,9 @@ test('SearchInput component renders properly', () => {
     </Provider>
   )
 
-  const label = wrapper.find('.screen-reader-text')
-  expect(label.text()).toBe(props.label)
+  expect(component.find('.screen-reader-text').text()).toBe(props.label)
 
-  const input = wrapper.find('input[type="search"]')
+  const input = component.find('input[type="search"]')
   expect(input.props().placeholder).toBe(props.placeholder)
   expect(input.props().value).toBe(props.value)
 })
