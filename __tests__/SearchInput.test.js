@@ -1,7 +1,9 @@
 import React from 'react'
+import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 
 import SearchInput from '../src/js/components/SearchInput'
+import store from '../src/js/store'
 
 test('SearchInput component renders properly', () => {
 
@@ -12,11 +14,13 @@ test('SearchInput component renders properly', () => {
   }
 
   const wrapper = mount(
-    <SearchInput
-      label={props.label}
-      placeholder={props.placeholder}
-      value={props.value}
-    />
+    <Provider store={store}>
+      <SearchInput
+        label={props.label}
+        placeholder={props.placeholder}
+        value={props.value}
+      />
+    </Provider>
   )
 
   const label = wrapper.find('.screen-reader-text')

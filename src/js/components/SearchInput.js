@@ -1,5 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Autosuggest from 'react-autosuggest'
+
+import { getSuggestions, clearSuggestions } from '../actions'
+import store from '../store'
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getSuggestions: (request) => {
+      return dispatch(getSuggestions(request))
+    },
+    clearSuggestions: () => {
+      return dispatch(clearSuggestions())
+    }
+  }
+}
 
 function getSuggestionValue(suggestion) {
   return suggestion.title
@@ -32,7 +47,7 @@ function getSectionSuggestions(section) {
   return section.results
 }
 
-export default class SearchInput extends React.Component {
+class ConnectedSearchInput extends React.Component {
 
   constructor(props) {
     super(props)
@@ -41,26 +56,31 @@ export default class SearchInput extends React.Component {
       suggestions: [],
       value: this.props.value
     }
+
+    store.subscribe(() => {
+      this.setState({
+        suggestions: store.getState().suggestions
+      })
+    })
   }
 
-  onChange = (event, { newValue }) => {
+  onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
     })
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
-    console.log('onSuggestionsFetchRequested', value)
-
-    this.setState({
-      suggestions: [{"title":"post","results":[{"id":9,"title":"Sample Post","excerpt":"","postType":"post","url":"http://one.wordpress.test/sample-post/"}]},{"title":"page","results":[{"id":2,"title":"Sample Page","excerpt":"<p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this: Hi there! I&#8217;m a bike messenger [&hellip;]</p>\n","postType":"page","url":"http://one.wordpress.test/sample-page/"}]}]
-    })
+    if (value.length > 2) {
+      this.props.getSuggestions({
+        url: this.props.url,
+        term: value
+      })
+    }
   }
 
   onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    })
+    this.props.clearSuggestions()
   }
 
   render() {
@@ -96,3 +116,6 @@ export default class SearchInput extends React.Component {
     )
   }
 }
+
+const SearchInput = connect(null, mapDispatchToProps)(ConnectedSearchInput)
+export default SearchInput
