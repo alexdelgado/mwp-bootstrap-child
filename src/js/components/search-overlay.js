@@ -2,7 +2,8 @@ const $searchLink = document.querySelector('.js-search-toggle')
 
 function createToggleBtn() {
   const $searchToggle = document.createElement('button')
-  $searchToggle.classList.add('btn--transparent', 'js-search-toggle')
+  $searchToggle.id = 'js-search-toggle'
+  $searchToggle.classList.add('btn--transparent')
   $searchToggle.setAttribute('aria-label', 'Toggle search')
   $searchToggle.setAttribute('aria-expanded', 'false')
   $searchToggle.innerHTML = $searchLink.innerHTML
@@ -22,7 +23,7 @@ function hideHandler(e) {
 function hideOverlay($overlay) {
   $overlay.classList.remove('show')
   $overlay.setAttribute('aria-hidden', 'true')
-  document.querySelector('.js-search-form input').dispatchEvent(new Event('hidden'))
+  document.querySelector('#js-search-form input').dispatchEvent(new Event('hidden'))
 }
 
 function showOverlay($overlay) {

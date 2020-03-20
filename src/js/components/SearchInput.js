@@ -110,10 +110,7 @@ class ConnectedSearchInput extends React.Component {
             'placeholder': this.props.placeholder,
             'value': this.state.value,
             'role': 'combobox',
-            'aria-autocomplete': 'list',
-            'aria-expanded': 'false',
             'aria-label': 'Search for...',
-            'aria-owns': 'js-search-autocomplete',
             'autoComplete': 'off',
             onChange: this.onChange
           }}

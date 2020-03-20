@@ -38,7 +38,7 @@ class ConnectedSearchForm extends React.Component {
 
   render() {
     return (
-      <div className="search-form js-search-form">
+      <div id="js-search-form" className="search-form">
         <div className="search-form__header">
           <SearchInput
             label={wpBootstrap.search.label}
