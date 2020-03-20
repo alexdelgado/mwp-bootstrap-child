@@ -83,8 +83,10 @@ class ConnectedSearchInput extends React.Component {
   }
 
   onSuggestionsClearRequested = () => {
-    this.props.clearSuggestions()
-    this.props.clearSearchResults()
+    if (!document.getElementById('js-search').value) {
+      this.props.clearSuggestions()
+      this.props.clearSearchResults()
+    }
   }
 
   render() {

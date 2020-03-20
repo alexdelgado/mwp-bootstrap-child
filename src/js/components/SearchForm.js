@@ -22,10 +22,6 @@ class ConnectedSearchForm extends React.Component {
   componentDidMount() {
     const $search = ReactDOM.findDOMNode(this).querySelector('input')
 
-    $search.addEventListener('hidden', (e) => {
-      this.props.clearSearchResults()
-    })
-
     $search.addEventListener('keyup', (e) => {
       if (e.keyCode === 13) {
         this.props.getSearchResults({
@@ -33,6 +29,10 @@ class ConnectedSearchForm extends React.Component {
           term: e.target.value
         })
       }
+    })
+
+    $search.addEventListener('hidden', (e) => {
+      this.props.clearSearchResults()
     })
   }
 
