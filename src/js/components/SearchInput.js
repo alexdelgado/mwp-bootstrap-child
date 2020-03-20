@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Autosuggest from 'react-autosuggest'
 
-import { getSuggestions, clearSuggestions } from '../actions'
+import { getSuggestions, clearSuggestions, clearSearchResults } from '../actions'
 import store from '../store'
 
 function mapDispatchToProps(dispatch) {
@@ -12,6 +12,9 @@ function mapDispatchToProps(dispatch) {
     },
     clearSuggestions: () => {
       return dispatch(clearSuggestions())
+    },
+    clearSearchResults: () => {
+      return dispatch(clearSearchResults())
     }
   }
 }
@@ -81,6 +84,7 @@ class ConnectedSearchInput extends React.Component {
 
   onSuggestionsClearRequested = () => {
     this.props.clearSuggestions()
+    this.props.clearSearchResults()
   }
 
   render() {

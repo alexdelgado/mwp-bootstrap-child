@@ -2,8 +2,8 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { mount } from 'enzyme'
 
-import SearchResults from '../src/js/components/SearchResults'
-import store from '../src/js/store'
+import SearchResults from '../../src/js/components/SearchResults'
+import store from '../../src/js/store'
 
 describe('SearchResults', () => {
 
@@ -17,9 +17,8 @@ describe('SearchResults', () => {
     )
   })
 
-
   it('renders properly', () => {
-    expect(component.find('h3').text()).toBe("Sorry, we couldn't find any results for that query.")
+    expect( component.find('ConnectedSearchResults').text() ).toBe('')
   })
 
   it('displays search results', () => {

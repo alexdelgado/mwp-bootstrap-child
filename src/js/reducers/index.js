@@ -1,7 +1,7 @@
 // src/js/reducers/index.js
 
 import { REST_SEARCH_SUGGESTIONS_GET, REST_SEARCH_SUGGESTIONS_GOT, REST_SEARCH_SUGGESTIONS_CLEAR } from '../constants'
-import { REST_SEARCH_RESULTS_GOT, REST_SEARCH_RESULTS_CLEAR } from '../constants'
+import { REST_SEARCH_RESULTS_GOT, REST_SEARCH_RESULTS_LOADED, REST_SEARCH_RESULTS_CLEAR } from '../constants'
 import SearchResult from '../models/SearchResult'
 
 const initialState = {
@@ -52,10 +52,12 @@ function rootReducer(state = initialState, action) {
     case REST_SEARCH_RESULTS_GOT:
       return Object.assign({}, state, {
         results: transformSuggestions(action.payload),
+        status: REST_SEARCH_RESULTS_LOADED
       })
     case REST_SEARCH_RESULTS_CLEAR:
       return Object.assign({}, state, {
         results: [],
+        status: ''
       })
     default:
       return state

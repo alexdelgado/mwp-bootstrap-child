@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { getSearchResults, clearSearchResults } from '../actions'
+import { REST_SEARCH_RESULTS_LOADED } from '../constants'
 import store from '../store'
 
 function mapDispatchToProps(dispatch) {
@@ -22,11 +23,15 @@ class ConnectedSearchResults extends React.Component {
 
     this.state = {
       results: [],
+      status: ''
     }
 
     store.subscribe(() => {
+      const state = store.getState()
+
       this.setState({
-        results: store.getState().results
+        results: state.results,
+        status: state.status
       })
     })
   }
@@ -43,9 +48,13 @@ class ConnectedSearchResults extends React.Component {
           ))
         ))
       )
-    } else {
+    } else if (this.state.status === REST_SEARCH_RESULTS_LOADED) {
       return (
         <h3>Sorry, we couldn't find any results for that query.</h3>
+      )
+    } else {
+      return (
+        <div></div>
       )
     }
   }
