@@ -1,0 +1,47 @@
+.hero {
+  background: $gray-300;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 450px;
+  position: relative;
+
+  &::before {
+    background: rgba(0, 0, 0, .2);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .container {
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    h2 {
+      color: $white;
+      font-size: 3rem;
+      width: 100%;
+    }
+
+    p {
+      color: $white;
+      font-size: 1rem;
+    }
+  }
+
+  .container-fluid & {
+    margin-left: -#{$grid-gutter-width / 2};
+    margin-right: -#{$grid-gutter-width / 2};
+  }
+}

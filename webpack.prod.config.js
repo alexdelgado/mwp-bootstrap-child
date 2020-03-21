@@ -9,8 +9,8 @@ module.exports = {
     theme: ['./src/js/theme.js', './src/scss/theme.scss'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist/js'),
-    filename: '[name].min.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].min.js'
   },
   module: {
     rules: [
@@ -36,6 +36,16 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/[name].min.css' }),
-  ]
+    new MiniCssExtractPlugin({ filename: 'css/[name].min.css' }),
+  ],
+  resolve: {
+    modules: ['node_modules'],
+    alias: {
+      'TweenMax': 'gsap/dist/gsap.min.js',
+      'TimelineMax': 'gsap/dist/gsap.min.js',
+      'ScrollMagic': 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
+      'animation.gsap': 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
+      'debug.addIndicators': 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'
+    }
+  }
 };

@@ -2,6 +2,7 @@
   background: $white;
   display: flex;
   justify-content: flex-end;
+  z-index: 10;
 
   &::before {
     border-top: 1px solid rgba(0,0,0,.06);
