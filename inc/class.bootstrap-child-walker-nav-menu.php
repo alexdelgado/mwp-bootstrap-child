@@ -1,6 +1,6 @@
 <?php
 
-class Child_One_Walker_Nav_Menu extends WP_Bootstrap_Walker_Nav_Menu {
+class Bootstrap_Child_Walker_Nav_Menu extends WP_Bootstrap_Walker_Nav_Menu {
 
 	/**
 	 * Filters the CSS classes applied to a menu item's list item element.

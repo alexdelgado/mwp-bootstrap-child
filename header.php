@@ -20,7 +20,7 @@
 								'menu_class'     => 'nav',
 								'menu_id'        => false,
 								'container'      => false,
-								'walker'         => Child_One_Walker_Nav_Menu::singleton(),
+								'walker'         => Bootstrap_Child_Walker_Nav_Menu::singleton(),
 								'theme_location' => 'utility',
 								'items_wrap'     => '<ul class="%2$s">%3$s</ul>'
 							)

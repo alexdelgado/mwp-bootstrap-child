@@ -1,6 +1,6 @@
 <?php
 
-class Child_One_Theme extends WP_Bootstrap_Theme {
+class Bootstrap_Child_Theme extends WP_Bootstrap_Theme {
 
 	/**
 	 * Enqueue Assets
