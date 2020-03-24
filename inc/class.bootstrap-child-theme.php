@@ -12,14 +12,14 @@ class Bootstrap_Child_Theme extends WP_Bootstrap_Theme {
 			'wp-bootstrap-theme',
 			get_stylesheet_directory_uri() .'/dist/css/theme.min.css',
 			array(),
-			filemtime( get_stylesheet_directory() . '/dist/css/theme.min.css' )
+			( defined( 'WP_DEBUG' ) ? null : filemtime( get_stylesheet_directory() . '/dist/css/theme.min.css' ) )
 		);
 
 		wp_enqueue_script(
 			'wp-bootstrap-theme',
 			get_stylesheet_directory_uri() .'/dist/js/theme.min.js',
 			array(),
-			filemtime( get_stylesheet_directory() . '/dist/js/theme.min.js' ),
+			( defined( 'WP_DEBUG' ) ? null : filemtime( get_stylesheet_directory() . '/dist/js/theme.min.js' ) ),
 			true
 		);
 	}
