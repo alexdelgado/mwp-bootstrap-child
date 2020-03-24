@@ -21,7 +21,7 @@
 								'menu_id'        => false,
 								'container'      => false,
 								'walker'         => Bootstrap_Child_Walker_Nav_Menu::singleton(),
-								'theme_location' => 'utility',
+								'theme_location' => 'primary',
 								'items_wrap'     => '<ul class="%2$s">%3$s</ul>'
 							)
 						);
