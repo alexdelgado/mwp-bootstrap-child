@@ -12,6 +12,8 @@ class Bootstrap_Child_Walker_Nav_Menu extends WP_Bootstrap_Walker_Nav_Menu {
 	 * @param WP_Post  $item    The current menu item.
 	 * @param stdClass $args    An object of wp_nav_menu() arguments.
 	 * @param int      $depth   Depth of menu item. Used for padding.
+	 * 
+	 * @return string[] Array of the CSS classes that will be applied to the menu item's `<li>` element.
 	 */
 	public function nav_menu_css_class( $classes, $item, $args, $depth ) {
 
@@ -29,8 +31,8 @@ class Bootstrap_Child_Walker_Nav_Menu extends WP_Bootstrap_Walker_Nav_Menu {
 
 	/**
 	 * Singleton
-	 *
-	 * Returns a single instance of this class.
+	 * 
+	 * @return Bootstrap_Child_Walker_Nav_Menu A single instance of the class.
 	 */
 	public static function singleton() {
 
@@ -45,6 +47,8 @@ class Bootstrap_Child_Walker_Nav_Menu extends WP_Bootstrap_Walker_Nav_Menu {
 	 * Determines whether the given input contains any icon classes.
 	 *
 	 * @param string $class CSS class applied to a menu item's `<li>` element.
+	 * 
+	 * @return bool True if the given class is considered an icon class; otherwise False
 	 */
 	protected function _has_icon_class( $class ) {
 		return preg_match( '/icon-|lni-/', $class );
