@@ -3727,6 +3727,14 @@ Author: lineicons.com
   .react-autosuggest__suggestion:hover, .react-autosuggest__suggestion:focus, .react-autosuggest__suggestion--highlighted {
     background: #e9ecef; }
 
+.footer {
+  background: #e9ecef;
+  margin-top: 100px;
+  padding-bottom: 50px;
+  padding-top: 50px; }
+  .footer h2 {
+    font-size: 1.25rem; }
+
 .main {
   overflow: hidden; }
 
@@ -3813,6 +3821,25 @@ Author: lineicons.com
       background: #f8f9fa;
       border-radius: 3px; }
 
+.subscribe {
+  color: #6c757d; }
+  .subscribe__form {
+    margin-top: 15px; }
+  .subscribe__email {
+    background: none;
+    border: 1px solid #adb5bd;
+    padding: 10px 15px;
+    width: 100%; }
+  .subscribe__social {
+    margin-top: 15px; }
+    .subscribe__social a {
+      color: #6c757d;
+      font-size: 1.25rem; }
+      .subscribe__social a:nth-child(n+2) {
+        margin-left: 15px; }
+      .subscribe__social a:hover {
+        color: #212529; }
+
 .btn--sm {
   font-size: 24px; }
 
@@ -3833,6 +3860,16 @@ Author: lineicons.com
 
 .featured__image {
   display: flex; }
+
+.footer-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px; }
+  .footer-menu a {
+    color: #6c757d; }
+    .footer-menu a:hover {
+      color: #212529; }
 
 .hero {
   align-items: center;

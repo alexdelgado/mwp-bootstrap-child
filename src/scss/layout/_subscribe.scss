@@ -1,0 +1,31 @@
+.subscribe {
+  color: $gray-600;
+
+  &__form {
+    margin-top: 15px;
+  }
+
+  &__email {
+    background: none;
+    border: 1px solid $gray-500;
+    padding: 10px 15px;
+    width: 100%;
+  }
+
+  &__social {
+    margin-top: 15px;
+
+    a {
+      color: $gray-600;
+      font-size: 1.25rem;
+      
+      &:nth-child(n+2) {
+        margin-left: 15px;
+      }
+
+      &:hover {
+        color: $gray-900;
+      }
+    }
+  }
+}
