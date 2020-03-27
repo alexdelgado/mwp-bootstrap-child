@@ -1,0 +1,12 @@
+.featured {
+  .container {
+    height: 500px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+
+  &__image {
+    display: flex;
+  }
+}

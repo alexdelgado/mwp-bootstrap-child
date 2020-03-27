@@ -14,3 +14,6 @@ add_action( 'init', array( 'bootstrap_child_rest_api', 'singleton' ) );
 // Accessible WordPress Menus
 require( get_template_directory() .'/inc/class.wp-bootstrap-walker-nav-menu.php' );
 require( 'inc/class.bootstrap-child-walker-nav-menu.php' );
+
+// Utility Functions
+require( 'inc/utilities.php' );
