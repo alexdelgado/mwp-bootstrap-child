@@ -46,15 +46,28 @@
 // -------------------------------------
 //   Layout
 // -------------------------------------
+@import 'layout/footer';
+@import 'layout/main';
 @import 'layout/overlay';
 @import 'layout/nav';
 @import 'layout/navbar';
 @import 'layout/primary-nav';
 @import 'layout/search-form';
+@import 'layout/subscribe';
 
 
 // -------------------------------------
 //   Components
 // -------------------------------------
 @import 'components/btn';
+@import 'components/featured';
+@import 'components/footer-menu';
+@import 'components/hero';
 @import 'components/form';
+@import 'components/play-btn';
+
+
+// -------------------------------------
+//   Pages
+// -------------------------------------
+@import 'pages/home';

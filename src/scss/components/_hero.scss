@@ -1,0 +1,31 @@
+.hero {
+  align-items: center;
+  background-attachment: fixed;
+  background-color: $gray-200;
+  background-position: center center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 375px;
+
+  &__content {
+    box-sizing: border-box;
+    color: $white;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 960px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+
+    h2 {
+      color: $white;
+      font-size: 4rem;
+    }
+  
+    p {
+      font-size: 1.25rem;
+    }
+  }
+}

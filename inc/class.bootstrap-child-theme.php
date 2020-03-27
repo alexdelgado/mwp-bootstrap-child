@@ -37,4 +37,17 @@ class Bootstrap_Child_Theme extends WP_Bootstrap_Theme {
 
 		return self::$instance;
 	}
+
+	/**
+	 * Set Theme Options
+	 *
+	 * Configures the necessary WordPress theme options once the theme is activated.
+	 */
+	public static function setup_theme() {
+		register_nav_menus(
+			array(
+				'footer' => __( 'Footer Navigation', '_bootstrap' ),
+			)
+		);
+	}
 }

@@ -1,0 +1,12 @@
+.footer-menu {
+  @include reset-list;
+  margin-top: 15px;
+
+  a {
+    color: $gray-600;
+
+    &:hover {
+      color: $gray-900;
+    }
+  }
+}
