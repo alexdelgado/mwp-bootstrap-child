@@ -3723,6 +3723,11 @@ Author: lineicons.com
   .react-autosuggest__suggestion:hover, .react-autosuggest__suggestion:focus, .react-autosuggest__suggestion--highlighted {
     background: #e9ecef; }
 
+.main {
+  overflow: hidden; }
+  .main > section {
+    position: relative; }
+
 .overlay {
   background: #fff;
   height: 100vh;
@@ -3817,6 +3822,31 @@ Author: lineicons.com
   padding: 0.25rem 0.75rem; }
   .btn--transparent:hover, .btn--transparent:focus {
     text-decoration: none; }
+
+.hero {
+  align-items: center;
+  background-attachment: fixed;
+  background-color: #e9ecef;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 375px; }
+  .hero__content {
+    box-sizing: border-box;
+    color: #fff;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 960px;
+    position: relative;
+    text-align: center;
+    z-index: 2; }
+    .hero__content h2 {
+      color: #fff;
+      font-size: 4rem; }
+    .hero__content p {
+      font-size: 1.25rem; }
 
 .input-text {
   display: block;
