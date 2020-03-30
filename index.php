@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<main class="container-fluid">
+	<main class="main">
 		<?php
 			if ( have_posts() ) {
 				while ( have_posts() ) {
